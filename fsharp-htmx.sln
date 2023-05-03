@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Server", "Server\Server.fsproj", "{21E04CC2-9B34-4A0C-8598-BE50723D15EE}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TaskExt", "TaskExt\TaskExt.fsproj", "{B43F1DE8-CA13-4FB3-9B84-6CC24AC55107}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "JsonPlaceholder", "JsonPlaceholder\JsonPlaceholder.fsproj", "{3399E40E-329A-4966-AF98-2BA809C3C7D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{21E04CC2-9B34-4A0C-8598-BE50723D15EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E04CC2-9B34-4A0C-8598-BE50723D15EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E04CC2-9B34-4A0C-8598-BE50723D15EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E04CC2-9B34-4A0C-8598-BE50723D15EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43F1DE8-CA13-4FB3-9B84-6CC24AC55107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43F1DE8-CA13-4FB3-9B84-6CC24AC55107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43F1DE8-CA13-4FB3-9B84-6CC24AC55107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43F1DE8-CA13-4FB3-9B84-6CC24AC55107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3399E40E-329A-4966-AF98-2BA809C3C7D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3399E40E-329A-4966-AF98-2BA809C3C7D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3399E40E-329A-4966-AF98-2BA809C3C7D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3399E40E-329A-4966-AF98-2BA809C3C7D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
