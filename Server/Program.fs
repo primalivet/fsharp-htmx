@@ -11,8 +11,6 @@ open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
 open Giraffe
 open Giraffe.ViewEngine
-open Giraffe.Htmx
-open Task.Ext
 open Server.Views.Models
 open JsonPlaceholder
 
@@ -24,11 +22,14 @@ let postHandler (postId: int64) : HttpHandler =
     fun (next: HttpFunc) (ctx: HttpContext) ->
         task {
             let! post = getPostById postId
+            let! comments = getCommentsForPost postId
 
             return!
-                match post with
-                | Ok post -> (Views.Pages.Posts.single post |> Views.Layouts.standard |> htmlView) next ctx
-                | Error reason -> (div [] [ encodedText reason ] |> Views.Layouts.standard |> htmlView) next ctx
+                match (post, comments) with
+                | (Ok post, Ok comments) ->
+                    (Views.Pages.Posts.single (post, comments) |> Views.Layouts.standard |> htmlView) next ctx
+                | (Error reason, _) -> (div [] [ encodedText reason ] |> Views.Layouts.standard |> htmlView) next ctx
+                | (_, Error reason) -> (div [] [ encodedText reason ] |> Views.Layouts.standard |> htmlView) next ctx
         }
 
 let postsHandler: HttpHandler =

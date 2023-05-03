@@ -27,6 +27,13 @@ module Components =
                 [ h3 [ _class "text-lg-blue-600 mb-2" ] [ blueLink (sprintf "/posts/%d" post.id) post.title ]
                   p [] [ encodedText post.body ] ]
 
+        let comment (cmmnt: Comment) =
+            div
+                [ _class "flex flex-col gap-2" ]
+                [ p [] [ strong [] [ encodedText cmmnt.name ] ]
+                  p [] [ encodedText cmmnt.email ]
+                  p [] [ encodedText cmmnt.body ] ]
+
 
 module Layouts =
     open Giraffe.ViewEngine
@@ -70,12 +77,16 @@ module Pages =
                 [ _class "p-4" ]
                 [ ul [ _class "flex flex-col gap-4" ] (posts |> List.map (Components.Posts.compactPost)) ]
 
-        let single (post: Post) =
-            div
-                [ _class "p-4" ]
+        let single (post: Post, comments: Comment list) =
+            article
+                [ _class "flex flex-col gap-6 p-4" ]
                 [ nav [ _hxBoost ] [ Components.blueLink "/posts" "<- All items" ]
-                  h2 [] [ encodedText post.title ]
-                  p [] [ encodedText post.body ] ]
+                  h2 [ _class "text-2xl" ] [ encodedText post.title ]
+                  p [] [ encodedText post.body ]
+                  div
+                      []
+                      [ h3 [ _class "text-lg" ] [ encodedText "Comments" ]
+                        div [ _class "flex flex-col gap-6 p-4" ] (comments |> List.map (Components.Posts.comment)) ] ]
 
     let index (model: Models.Message) =
         div
